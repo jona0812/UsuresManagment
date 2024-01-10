@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link,useLocation } from "react-router-dom";
 import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from "./header/Header";
@@ -9,8 +9,8 @@ function Dashboard() {
 
 
     const number = window.location.href;
+    const {state} =useLocation();
 
-    console.log(number);
 
     return (
         <>
@@ -18,7 +18,7 @@ function Dashboard() {
             <Header />
             <div className="App container">
                 <h3 className="mainTitle">React CRUD operations using PHP AND MySQL</h3>
-
+                <h3>{state}</h3>
                 <h3 className="mainTitle">React CRUD operations using PHP AND MySQL</h3>
                 <h3 className="mainTitle">React CRUD operations using PHP AND MySQL</h3>
                 <h3 className="mainTitle">React CRUD operations using PHP AND MySQL</h3>

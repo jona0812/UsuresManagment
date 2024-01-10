@@ -5,10 +5,21 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './header.css';
+import axios from 'axios';
 
 const Header = () => {
+
+  const navigate= useNavigate();
+  const logout = () =>{
+    
+    axios.get('http://localhost/tienda/backend/logout.php?logout')
+    .then(function (response) {
+      navigate('/');
+    })
+  }
+  
   return (
     
     <Navbar expand="lg" className="bg-body-tertiary">
@@ -43,13 +54,13 @@ const Header = () => {
             </Nav.Link>
           </Nav>
           <Form className="d-flex">
-            <Form.Control
+            {/* <Form.Control
               type="search"
               placeholder="Search"
               className="me-2"
               aria-label="Search"
-            />
-            <Button variant="outline-success">Search</Button>
+            /> */}
+            <Button variant="outline-success" onClick={logout}>Logout</Button>
           </Form>
         </Navbar.Collapse>
       </Container>

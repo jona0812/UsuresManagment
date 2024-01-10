@@ -16,6 +16,7 @@ export default function (props) {
     const [inputs, setInputs] = useState({});
     const navigate = useNavigate();
 
+
     const changeAuthMode = () => {
         setAuthMode(authMode === "signin" ? "signup" : "signin");
     }
@@ -36,7 +37,7 @@ export default function (props) {
                 console.log("yeah");
 
                 navigate('/dashboard');
-
+                
             } else {
                 console.log("nuuuuu");
             }

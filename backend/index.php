@@ -1,10 +1,8 @@
 <?php
-
+session_start();
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
-
-
 
 include './database/db_connection.php';
 
@@ -26,16 +24,20 @@ switch ($method) {
             $stmt->execute();
             $users = $stmt->fetch(PDO::FETCH_ASSOC);
             echo json_encode($users);
+
         } else {
+
             $stmt = $conn->prepare($sql);
             $stmt->execute();
+            print_r($_SESSION['mor']);
+
             $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
             echo json_encode($users);
         }
         break;
     case 'POST':
         $user = json_decode(file_get_contents('php://input'));
-        var_dump($user,"vardump");
+        var_dump($user, "vardump");
         $sql = "INSERT INTO users (id, name, email,password, mobile, create_at) VALUES (null, :name, :email,:password, :mobile, :create_at)";
         $stmt = $conn->prepare($sql);
         $created_at = date('Y-m-d');
@@ -56,7 +58,7 @@ switch ($method) {
         break;
 
     case 'PUT':
-        
+
         $user = json_decode(file_get_contents('php://input'));
         $sql = "UPDATE users SET  name =:name, email =:email,password =:password, mobile =:mobile, update_at=:update_at  WHERE id =:id";
         $stmt = $conn->prepare($sql);
@@ -78,23 +80,23 @@ switch ($method) {
 
         echo json_encode($response);
         break;
-        case 'DELETE' :
-            
-            $getArrayURL= explode("/", $_SERVER['REQUEST_URI']);
-            $getId= $getArrayURL[4];
-            $sql= "DELETE FROM users WHERE id=:id";
-            $stmt= $conn->prepare($sql);
-            $stmt->bindParam(':id', $getId);
+        
+    case 'DELETE':
 
-            if ($stmt->execute()) {
+        $getArrayURL = explode("/", $_SERVER['REQUEST_URI']);
+        $getId = $getArrayURL[4];
+        $sql = "DELETE FROM users WHERE id=:id";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':id', $getId);
 
-                $response = ['status' => 1, 'message' => 'Record deleted successfully'];
-            } else {
-                $response = ['status' => 0, 'message' => 'Failed to delete record'];
-            }
-    
-            echo json_encode($response);
+        if ($stmt->execute()) {
 
-            break;
+            $response = ['status' => 1, 'message' => 'Record deleted successfully'];
+        } else {
+            $response = ['status' => 0, 'message' => 'Failed to delete record'];
+        }
 
+        echo json_encode($response);
+
+        break;
 }

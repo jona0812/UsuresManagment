@@ -10,14 +10,11 @@ import App from '../App'
 const Routers = () => {
   return(
   <Routes>
-    
     <Route exact path='/' element={<App />} />
     <Route path='/user/create' element={<CreateUser />} />
     <Route path='/user/:id/edit' element={<EditUser />} />
     <Route path='/listUsers' element={<ListUser />} />
     <Route path='/dashboard' element={<Dashboard />} />
-    
-    
   </Routes>
   )
 }

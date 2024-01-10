@@ -1,6 +1,5 @@
 <?php
 
-
 class db_connection{
     private $server= 'localhost';
     private $dbname= 'shop';
