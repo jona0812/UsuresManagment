@@ -5,26 +5,29 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import Logo from '../../imagenes/logorojas.png';
+
 import { Link, useNavigate } from 'react-router-dom';
 import './header.css';
 import axios from 'axios';
 
 const Header = () => {
 
-  const navigate= useNavigate();
-  const logout = () =>{
-    
+  const navigate = useNavigate();
+  const logout = () => {
+
     axios.get('http://localhost/tienda/backend/logout.php?logout')
-    .then(function (response) {
-      navigate('/');
-    })
+      .then(function (response) {
+        navigate('/');
+      })
   }
-  
+
   return (
-    
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
-        <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+        <Link to="/Dashboard">
+          <img fluid src={Logo} className='imgLogo'></img>
+          </Link>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -33,11 +36,11 @@ const Header = () => {
             navbarScroll
           >
             <Nav.Link to="/listUsers">
-                
-            <Link to="/listUsers" style={{ textDecoration: 'none' }}>List users</Link>
+
+              <Link to="/listUsers" style={{ textDecoration: 'none' }}>List users</Link>
             </Nav.Link>
             <Nav.Link >
-                <Link to="/user/create" style={{ textDecoration: 'none' }}> Crear usuario</Link>
+              <Link to="/user/create" style={{ textDecoration: 'none' }}> Crear usuario</Link>
             </Nav.Link>
             <NavDropdown title="Link" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">Action</NavDropdown.Item>

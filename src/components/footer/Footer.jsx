@@ -60,10 +60,10 @@ export const Footer = () => {
                         <div className='sb__footer-links_div'>
                             <h4>Coming soon on </h4>
                             <div className='socialmedia'>
-                                <p> <img src="" alt="" srcset="" /></p>
-                                <p> <img src="" alt="" srcset="" /></p>
-                                <p> <img src="" alt="" srcset="" /></p>
-                                <p> <img src="" alt="" srcset="" /></p>
+                                <p> <img src="" alt=""  /></p>
+                                <p> <img src="" alt=""  /></p>
+                                <p> <img src="" alt=""  /></p>
+                                <p> <img src="" alt=""  /></p>
                             </div>
                         </div>
                     </div>
