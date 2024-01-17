@@ -1,8 +1,8 @@
 
 import React, { useState } from "react"
 import "../styles/users.css";
-
-import { Route, Link,useNavigate } from "react-router-dom";
+import Alert from 'react-bootstrap/Alert';
+import { Route, Link, useNavigate } from "react-router-dom";
 import { CreateUser } from "./CreateUser";
 import axios from "axios";
 import Routers from "../routes/Routers";
@@ -13,6 +13,7 @@ export default function (props) {
     let [authMode, setAuthMode] = useState("signin")
     const [inputs, setInputs] = useState({});
     const navigate = useNavigate();
+    const [errorLogin, setErrorLogin] = useState(false);
 
 
     const changeAuthMode = () => {
@@ -37,6 +38,7 @@ export default function (props) {
                 navigate('/dashboard');
 
             } else {
+                setErrorLogin(true);
                 console.log("nuuuuu");
             }
         })
@@ -74,10 +76,13 @@ export default function (props) {
                                 onChange={handleChanges}
                             />
                         </div>
+
                         <div className="d-grid gap-2 mt-3">
                             <button type="submit" className="btn btn-primary">
                                 Submit
                             </button>
+
+
                         </div>
                         <p className="text-center mt-2">
                             Forgot <a href="#">password?</a>

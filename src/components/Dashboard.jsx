@@ -3,7 +3,8 @@ import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from "./header/Header";
 import { Footer } from "./footer/Footer";
-
+import ReactPlayer from "react-player";
+import video from "../assets/video/landing.mp4";
 
 function Dashboard() {
 
@@ -17,28 +18,9 @@ function Dashboard() {
 
             <Header />
             <div className="App container">
-                <h3 className="mainTitle">React CRUD operations using PHP AND MySQL</h3>
-                <h3>{state}</h3>
-                <h3 className="mainTitle">React CRUD operations using PHP AND MySQL</h3>
-                <h3 className="mainTitle">React CRUD operations using PHP AND MySQL</h3>
-                <h3 className="mainTitle">React CRUD operations using PHP AND MySQL</h3>
-                <h3 className="mainTitle">React CRUD operations using PHP AND MySQL</h3>
-                <h3 className="mainTitle">React CRUD operations using PHP AND MySQL</h3>
-                <h3 className="mainTitle">React CRUD operations using PHP AND MySQL</h3>
-                <h3 className="mainTitle">React CRUD operations using PHP AND MySQL</h3>
-                <h3 className="mainTitle">React CRUD operations using PHP AND MySQL</h3>
-                <h3 className="mainTitle">React CRUD operations using PHP AND MySQL</h3>
-                <h3 className="mainTitle">React CRUD operations using PHP AND MySQL</h3>
-                <h3 className="mainTitle">React CRUD operations using PHP AND MySQL</h3>
-                <h3 className="mainTitle">React CRUD operations using PHP AND MySQL</h3>
-                <h3 className="mainTitle">React CRUD operations using PHP AND MySQL</h3>
-                <h3 className="mainTitle">React CRUD operations using PHP AND MySQL</h3>
-                <h3 className="mainTitle">React CRUD operations using PHP AND MySQL</h3>
-                <h3 className="mainTitle">React CRUD operations using PHP AND MySQL</h3>
-                <h3 className="mainTitle">React CRUD operations using PHP AND MySQL</h3>
-                <h3 className="mainTitle">React CRUD operations using PHP AND MySQL</h3>
+                <ReactPlayer url={video} className='video' controls loop  width='70%' height='60%' playing/> 
 
-                <nav style={{ textAlign: 'left' }}>
+                {/* <nav style={{ textAlign: 'center' }}>
                     <ul>
                         <li>
                             <h6>User managment</h6>
@@ -56,7 +38,7 @@ function Dashboard() {
                             <Link to="/" style={{ textDecoration: 'none' }} title="You'd go list and select user to edit">Login</Link>
                         </li>
                     </ul>
-                </nav>
+                </nav> */}
             </div>
             <Footer />
         </>

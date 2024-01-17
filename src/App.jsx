@@ -7,6 +7,7 @@ import { CreateUser } from "./components/CreateUser";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from "axios";
 import Routers from "./routes/Routers";
+import Alert from 'react-bootstrap/Alert';
 
 
 
@@ -15,6 +16,7 @@ export default function (props) {
     let [authMode, setAuthMode] = useState("signin")
     const [inputs, setInputs] = useState({});
     const navigate = useNavigate();
+    const [error, setError] = useState(false)
 
 
     const changeAuthMode = () => {
@@ -37,8 +39,9 @@ export default function (props) {
                 console.log("yeah");
 
                 navigate('/dashboard');
-                
+
             } else {
+                setError(true);
                 console.log("nuuuuu");
             }
         })
@@ -76,6 +79,10 @@ export default function (props) {
                                 onChange={handleChanges}
                             />
                         </div>
+                        {error ? (<Alert variant="danger" style={{ margin: '10px' }}>
+                            Las credenciales no coinciden
+                        </Alert>) : ''}
+
                         <div className="d-grid gap-2 mt-3">
                             <button type="submit" className="btn btn-primary">
                                 Submit
@@ -85,7 +92,7 @@ export default function (props) {
                             Forgot <a href="#">password?</a>
                         </p>
                         <p>
-                            <Link to="/user/create" style={{ textDecoration: 'none' }}>Create user</Link>
+                            <Link to="/create" style={{ textDecoration: 'none' }}>Create user</Link>
                         </p>
                     </div>
                 </form>
@@ -94,7 +101,7 @@ export default function (props) {
     }
 
     return (
-      <CreateUser />
+        <CreateUser />
     )
 }
 

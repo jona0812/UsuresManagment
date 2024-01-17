@@ -1,9 +1,9 @@
-<?php
-session_start();
+<?php session_start();
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
-
 include './database/db_connection.php';
 
 $class = new db_connection;
@@ -29,8 +29,10 @@ switch ($method) {
 
             $stmt = $conn->prepare($sql);
             $stmt->execute();
-
             $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            
+            // isset($_SESSION['idUsuario']) ? print_r($_SESSION['idUsuario']): print_r('no existe');
+            // echo $_SESSION['idUsuario'];
             echo json_encode($users);
         }
         break;

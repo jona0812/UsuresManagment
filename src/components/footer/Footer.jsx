@@ -1,5 +1,6 @@
 import React from 'react'
 import './footer.css'
+import { BsFacebook,BsYoutube, BsTwitterX,BsInstagram } from 'react-icons/bs';
 
 
 export const Footer = () => {
@@ -60,10 +61,10 @@ export const Footer = () => {
                         <div className='sb__footer-links_div'>
                             <h4>Coming soon on </h4>
                             <div className='socialmedia'>
-                                <p> <img src="" alt=""  /></p>
-                                <p> <img src="" alt=""  /></p>
-                                <p> <img src="" alt=""  /></p>
-                                <p> <img src="" alt=""  /></p>
+                                 <h3><img src="" alt=""  /> <BsFacebook /> </h3>
+                                 <h3><img src="" alt=""  /><BsYoutube /></h3>
+                                 <h3><img src="" alt=""  /> <BsInstagram /></h3>
+                                 <h3><img src="" alt=""  /> <BsTwitterX/> </h3>
                             </div>
                         </div>
                     </div>

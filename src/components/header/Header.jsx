@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import Logo from '../../imagenes/logorojas.png';
+import Logo from '../../assets/imagenes/logorojas.png';
 
 import { Link, useNavigate } from 'react-router-dom';
 import './header.css';
@@ -26,7 +26,7 @@ const Header = () => {
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
         <Link to="/Dashboard">
-          <img fluid src={Logo} className='imgLogo'></img>
+          <img fluid src={Logo} className='imgLogo'/>User managment &nbsp;
           </Link>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
@@ -42,7 +42,7 @@ const Header = () => {
             <Nav.Link >
               <Link to="/user/create" style={{ textDecoration: 'none' }}> Crear usuario</Link>
             </Nav.Link>
-            <NavDropdown title="Link" id="navbarScrollingDropdown">
+            {/* <NavDropdown title="Link" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action4">
                 Another action
@@ -51,7 +51,7 @@ const Header = () => {
               <NavDropdown.Item href="#action5">
                 Something else here
               </NavDropdown.Item>
-            </NavDropdown>
+            </NavDropdown> */}
             <Nav.Link href="#" disabled>
               Link
             </Nav.Link>

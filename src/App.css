@@ -1,6 +1,7 @@
 
 .App{
   padding-top: 15px;
+  padding-bottom: 15px;
   height: 200%;
 }
 
@@ -23,4 +24,11 @@ a:link, a, a:focus, a:hover, a:visited, a:link, a:active *{
   color: rgb(175, 175, 179 );
   text-decoration: none;
 
+}
+
+.video{
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  margin: auto;
 }

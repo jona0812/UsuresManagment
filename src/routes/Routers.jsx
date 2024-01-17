@@ -5,6 +5,7 @@ import { CreateUser } from '../components/CreateUser'
 import { EditUser } from '../components/EditUser'
 import { ListUser } from '../components/ListUser'
 import App from '../App'
+import { CreateUserGuess } from '../components/CreateUserGuess'
 
 
 const Routers = () => {
@@ -15,6 +16,8 @@ const Routers = () => {
     <Route path='/user/:id/edit' element={<EditUser />} />
     <Route path='/listUsers' element={<ListUser />} />
     <Route path='/dashboard' element={<Dashboard />} />
+    <Route path='/create' element={<CreateUserGuess />} />
+    
   </Routes>
   )
 }
