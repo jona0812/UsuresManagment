@@ -23,9 +23,6 @@ if ($data->email && $data->password) {
     // Iniciar session
     $verify = password_verify($data->password, $userPassword['password']);
     
-    print("<strong>Hola mor</strong>");
-    $a="10"; $b=$a + 2; 
-    print($b);
 
     if ($verify) {
 
